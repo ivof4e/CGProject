@@ -19,3 +19,13 @@ D:\Проекти\github\CGProject-master\1701261110\trunk\CGProject\obj\Debug\D
 D:\Проекти\github\CGProject-master\1701261110\trunk\CGProject\obj\Debug\Draw.csproj.CoreCompileInputs.cache
 D:\Проекти\github\CGProject-master\1701261110\trunk\CGProject\obj\Debug\Draw.exe
 D:\Проекти\github\CGProject-master\1701261110\trunk\CGProject\obj\Debug\Draw.pdb
+D:\Проекти\github\CGProject\1701261110\trunk\CGProject\obj\Debug\Draw.csprojAssemblyReference.cache
+D:\Проекти\github\CGProject\1701261110\trunk\CGProject\obj\Debug\Draw.Properties.Resources.resources
+D:\Проекти\github\CGProject\1701261110\trunk\CGProject\obj\Debug\Draw.DoubleBufferedPanel.resources
+D:\Проекти\github\CGProject\1701261110\trunk\CGProject\obj\Debug\Draw.MainForm.resources
+D:\Проекти\github\CGProject\1701261110\trunk\CGProject\obj\Debug\Draw.csproj.GenerateResource.cache
+D:\Проекти\github\CGProject\1701261110\trunk\CGProject\obj\Debug\Draw.csproj.CoreCompileInputs.cache
+D:\Проекти\github\CGProject\1701261110\trunk\CGProject\obj\Debug\Draw.exe
+D:\Проекти\github\CGProject\1701261110\trunk\CGProject\obj\Debug\Draw.pdb
+D:\Проекти\github\CGProject\1701261110\trunk\CGProject\bin\Debug\Draw.exe
+D:\Проекти\github\CGProject\1701261110\trunk\CGProject\bin\Debug\Draw.pdb

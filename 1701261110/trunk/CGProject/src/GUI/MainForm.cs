@@ -103,6 +103,13 @@ namespace Draw
             viewPort.Invalidate();
         }
 
+        private void toolStripButton4_Click_1(object sender, EventArgs e)
+        {
+            dialogProcessor.AddRandomTriangle();
+            statusBar.Items[0].Text = "Последно действие: Рисуване на Триъгълник";
+            viewPort.Invalidate();
+        }
+
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             dialogProcessor.AddRandomEllipse();
@@ -117,13 +124,14 @@ namespace Draw
             viewPort.Invalidate();
         }
 
-        private void toolStripButton4_Click(object sender, EventArgs e)
-        {
-            if (colorDialog.ShowDialog() == DialogResult.OK)
-            {
-                dialogProcessor.SetFillColor(colorDialog.Color);
-                viewPort.Invalidate();
-            }
-        }
+        //private void toolStripButton4_Click(object sender, EventArgs e)
+        //{
+           // if (colorDialog.ShowDialog() == DialogResult.OK)
+           // {
+             //   dialogProcessor.SetFillColor(colorDialog.Color);
+            //   viewPort.Invalidate();
+           // }
+      //  }
+
     }
 }

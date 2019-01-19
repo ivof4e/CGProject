@@ -108,6 +108,20 @@ namespace Draw
             ShapeList.Add(square);
         }
 
+        // Добавяне на рандом Триъгълник
+        public void AddRandomTriangle()
+        {
+            Random rnd = new Random();
+            int x = rnd.Next(100, 1000);
+            int y = rnd.Next(100, 600);
+
+            TriangleShape triangle = new TriangleShape(new Rectangle(x, y, 100, 100));
+            triangle.FillColor = Color.White;
+            triangle.BorderColor = Color.Black;
+
+            ShapeList.Add(triangle);
+        }
+
         // Добавяне на рандом Елипса
         public void AddRandomEllipse()
         {
@@ -135,7 +149,6 @@ namespace Draw
 
             ShapeList.Add(circle);
         }
-
 
         public void SetFillColor(Color color)
         {

@@ -37,6 +37,7 @@
     <Optimize>False</Optimize>
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -77,6 +78,7 @@
     <Compile Include="src\Model\RectangleShape.cs" />
     <Compile Include="src\Model\Shape.cs" />
     <Compile Include="src\Model\SquareShape.cs" />
+    <Compile Include="src\Model\TriangleShape.cs" />
     <Compile Include="src\Processors\DialogProcessor.cs" />
     <Compile Include="src\Processors\DisplayProcessor.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -1,0 +1,68 @@
+﻿using System;
+using System.Drawing;
+
+namespace Draw.src.Model
+{
+    /// <summary>
+    /// Класът правоъгълник е основен примитив, който е наследник на базовия Shape.
+    /// </summary>
+    public class TriangleShape : Shape
+    {
+        #region Constructor
+
+        public TriangleShape(RectangleF rect) : base(rect)
+        {
+        }
+
+        public TriangleShape(TriangleShape rectangle) : base(rectangle)
+        {
+        }
+
+        #endregion
+
+        /// <summary>
+        /// Проверка за принадлежност на точка point към правоъгълника.
+        /// В случая на правоъгълник този метод може да не бъде пренаписван, защото
+        /// Реализацията съвпада с тази на абстрактния клас Shape, който проверява
+        /// дали точката е в обхващащия правоъгълник на елемента (а той съвпада с
+        /// елемента в този случай).
+        /// </summary>
+        public override bool Contains(PointF point)
+        {
+            PointF a = Rectangle.Location;
+            PointF b = new PointF(Rectangle.Left, Rectangle.Bottom);
+            PointF c = new PointF(Rectangle.Right, Rectangle.Bottom);
+
+            double A = GetArea(a, b, c);
+            double A1 = GetArea(point, b, c);
+            double A2 = GetArea(a, point, c);
+            double A3 = GetArea(a, b, point);
+
+            return (A1 + A2 + A3) == A;
+        }
+
+        private double GetArea(PointF a, PointF b, PointF c)
+        {
+            return Math.Abs((a.X * (b.Y - c.Y) + b.X * (c.Y - a.Y) + c.X * (a.Y - b.Y)) / 2.0);
+        }
+
+        /// <summary>
+        /// Частта, визуализираща конкретния примитив.
+        /// </summary>
+        public override void DrawSelf(Graphics grfx)
+        {
+            base.DrawSelf(grfx);
+
+            PointF[] points = new PointF[]
+            {
+                new PointF(Rectangle.X, Rectangle.Y),
+                new PointF(Rectangle.X, Rectangle.Bottom),
+                new PointF(Rectangle.Right, Rectangle.Bottom)
+            };
+
+            grfx.FillPolygon(new SolidBrush(FillColor), points);
+            grfx.DrawPolygon(new Pen(BorderColor), points);
+
+        }
+    }
+}
