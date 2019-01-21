@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
 
 namespace Draw
@@ -135,14 +136,18 @@ namespace Draw
             viewPort.Invalidate();
         }
 
-        /*    private void toolStripButton4_Click(object sender, EventArgs e)
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
-                if (colorDialog.ShowDialog() == DialogResult.OK)
-                {
-                    dialogProcessor.SetFillColor(colorDialog.Color);
-                   viewPort.Invalidate();
-                }
-            }*/
+                dialogProcessor.SetFillColor(colorDialog1.Color);
+                viewPort.Invalidate();
+            }
+        }
 
+        private void pickUpSpeedButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

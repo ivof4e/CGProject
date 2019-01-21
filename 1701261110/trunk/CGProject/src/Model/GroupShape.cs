@@ -19,8 +19,6 @@ namespace Draw
         {
         }
 
-        #endregion
-
         public List<Shape> SubItems { get; set; }
 
         public override Color FillColor
@@ -34,9 +32,9 @@ namespace Draw
             }
         }
 
-     
+        #endregion
 
-       public override PointF Location
+        public override PointF Location
         {
             set {
                 float dx = value.X - Location.X;

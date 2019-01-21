@@ -33,7 +33,8 @@ namespace Draw
 		/// Дали в момента диалога е в състояние на "влачене" на избрания елемент.
 		/// </summary>
 		private bool isDragging;
-		public bool IsDragging {
+		public bool IsDragging
+        {
 			get { return isDragging; }
 			set { isDragging = value; }
 		}
@@ -43,7 +44,8 @@ namespace Draw
 		/// Използва се за определяне на вектора на транслация.
 		/// </summary>
 		private PointF lastLocation;
-		public PointF LastLocation {
+		public PointF LastLocation
+        {
 			get { return lastLocation; }
 			set { lastLocation = value; }
 		}
@@ -104,7 +106,7 @@ namespace Draw
 
             SquareShape square = new SquareShape(new Rectangle(x, y, 100, 100));
             square.FillColor = Color.White;
-            square.BorderColor = Color.Black;
+            square.BorderColor = Color.HotPink;
 
             ShapeList.Add(square);
         }
@@ -118,7 +120,7 @@ namespace Draw
 
             TriangleShape triangle = new TriangleShape(new Rectangle(x, y, 100, 100));
             triangle.FillColor = Color.White;
-            triangle.BorderColor = Color.Black;
+            triangle.BorderColor = Color.Blue;
 
             ShapeList.Add(triangle);
         }
@@ -132,7 +134,7 @@ namespace Draw
 
             EllipseShape ellipse = new EllipseShape(new Rectangle(x, y, 200, 100));
             ellipse.FillColor = Color.White;
-            ellipse.BorderColor = Color.Black;
+            ellipse.BorderColor = Color.Green;
 
             ShapeList.Add(ellipse);
         }
@@ -146,7 +148,7 @@ namespace Draw
 
             CircleShape circle = new CircleShape(new Rectangle(x, y, 100, 100));
             circle.FillColor = Color.White;
-            circle.BorderColor = Color.Black;
+            circle.BorderColor = Color.Purple;
 
             ShapeList.Add(circle);
         }
@@ -168,6 +170,11 @@ namespace Draw
             }
         }
 
+        internal void SetFillColor(object color)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Group()
         {
             if (Selection.Count < 2) return;
@@ -184,7 +191,7 @@ namespace Draw
                 if (maxY > item.Location.Y + item.Height) maxY = item.Location.Y + item.Height;
             }
 
-            var group = new GroupShape(new RectangleF(minX, minY, maxX - minX, maxY - minY));
+            var group = new GroupShape(new RectangleF(minX, minY, maxX-minX, maxY-minY));
             group.SubItems = Selection;
 
             foreach (var item in Selection)

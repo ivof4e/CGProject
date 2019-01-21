@@ -7,3 +7,12 @@ C:\Users\ivof4e\Desktop\Нова папка\trunk\CGProject\obj\Debug\Draw.MainF
 C:\Users\ivof4e\Desktop\Нова папка\trunk\CGProject\obj\Debug\Draw.csproj.GenerateResource.Cache
 C:\Users\ivof4e\Desktop\Нова папка\trunk\CGProject\obj\Debug\Draw.exe
 C:\Users\ivof4e\Desktop\Нова папка\trunk\CGProject\obj\Debug\Draw.pdb
+C:\Users\ivof4e\Desktop\trunk\CGProject\bin\Debug\Draw.exe
+C:\Users\ivof4e\Desktop\trunk\CGProject\bin\Debug\Draw.pdb
+C:\Users\ivof4e\Desktop\trunk\CGProject\obj\Debug\Draw.csprojResolveAssemblyReference.cache
+C:\Users\ivof4e\Desktop\trunk\CGProject\obj\Debug\Draw.Properties.Resources.resources
+C:\Users\ivof4e\Desktop\trunk\CGProject\obj\Debug\Draw.DoubleBufferedPanel.resources
+C:\Users\ivof4e\Desktop\trunk\CGProject\obj\Debug\Draw.MainForm.resources
+C:\Users\ivof4e\Desktop\trunk\CGProject\obj\Debug\Draw.csproj.GenerateResource.Cache
+C:\Users\ivof4e\Desktop\trunk\CGProject\obj\Debug\Draw.exe
+C:\Users\ivof4e\Desktop\trunk\CGProject\obj\Debug\Draw.pdb

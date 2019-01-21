@@ -48,7 +48,9 @@ namespace Draw
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.pickUpSpeedButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.viewPort = new Draw.DoubleBufferedPanel();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.mainMenu.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.speedMenu.SuspendLayout();
@@ -135,7 +137,8 @@ namespace Draw
             this.toolStripButton1,
             this.toolStripButton2,
             this.pickUpSpeedButton,
-            this.toolStripButton5});
+            this.toolStripButton5,
+            this.toolStripButton6});
             this.speedMenu.Location = new System.Drawing.Point(0, 24);
             this.speedMenu.Name = "speedMenu";
             this.speedMenu.Size = new System.Drawing.Size(693, 27);
@@ -201,6 +204,7 @@ namespace Draw
             this.pickUpSpeedButton.Name = "pickUpSpeedButton";
             this.pickUpSpeedButton.Size = new System.Drawing.Size(24, 24);
             this.pickUpSpeedButton.Text = "toolStripButton1";
+            this.pickUpSpeedButton.Click += new System.EventHandler(this.pickUpSpeedButton_Click);
             // 
             // toolStripButton5
             // 
@@ -211,6 +215,16 @@ namespace Draw
             this.toolStripButton5.Size = new System.Drawing.Size(24, 24);
             this.toolStripButton5.Text = "toolStripButton5";
             this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
+            // 
+            // toolStripButton6
+            // 
+            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
+            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton6.Name = "toolStripButton6";
+            this.toolStripButton6.Size = new System.Drawing.Size(24, 24);
+            this.toolStripButton6.Text = "toolStripButton6";
+            this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
             // 
             // viewPort
             // 
@@ -250,10 +264,6 @@ namespace Draw
 
 		}
 
-        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
 
         private System.Windows.Forms.ToolStripStatusLabel currentStatusLabel;
 		private Draw.DoubleBufferedPanel viewPort;
@@ -273,5 +283,9 @@ namespace Draw
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.ToolStripButton toolStripButton6;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+
+       
     }
 }
