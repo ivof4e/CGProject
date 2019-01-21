@@ -1,5 +1,6 @@
 ﻿using Draw.src.Model;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace Draw
@@ -22,8 +23,8 @@ namespace Draw
 		/// <summary>
 		/// Избран елемент.
 		/// </summary>
-		private Shape selection;
-		public Shape Selection {
+		private List<Shape> selection = new List<Shape>();
+		public List<Shape> Selection {
 			get { return selection; }
 			set { selection = value; }
 		}
@@ -74,11 +75,11 @@ namespace Draw
 		/// <param name="p">Вектор на транслация.</param>
 		public void TranslateTo(PointF p)
 		{
-			if (selection != null) {
-				selection.Location = new PointF(selection.Location.X + p.X - lastLocation.X, selection.Location.Y + p.Y - lastLocation.Y);
-				lastLocation = p;
+			foreach(var item in Selection) {
+                item.Location = new PointF(item.Location.X + p.X - lastLocation.X, item.Location.Y + p.Y - lastLocation.Y);	
 			}
-		}
+            lastLocation = p;
+        }
         /// <summary>
 		/// Добавя примитив - правоъгълник на произволно място върху клиентската област.
 		/// </summary>
@@ -152,13 +153,49 @@ namespace Draw
 
         public void SetFillColor(Color color)
         {
-            if (Selection != null)
+            foreach (var item in Selection)
             {
-                Selection.FillColor = color;
+                item.FillColor = color;
             }
         }
 
+        public override void Draw(Graphics grfx)
+        {
+            base.Draw(grfx);
+            foreach (var item in Selection)
+            {
+                grfx.DrawRectangle(Pens.Black, item.Location.X - 3, item.Location.Y - 3, item.Width + 6, item.Height + 6);
+            }
+        }
 
+        public void Group()
+        {
+            if (Selection.Count < 2) return;
 
+            float minX = float.PositiveInfinity;
+            float minY = float.PositiveInfinity;
+            float maxX = float.NegativeInfinity;
+            float maxY = float.NegativeInfinity;
+            foreach (var item in Selection)
+            {
+                if (minX > item.Location.X) minX = item.Location.X;
+                if (minY > item.Location.Y) minY = item.Location.Y;
+                if (maxX > item.Location.X + item.Width) maxX = item.Location.X + item.Width;
+                if (maxY > item.Location.Y + item.Height) maxY = item.Location.Y + item.Height;
+            }
+
+            var group = new GroupShape(new RectangleF(minX, minY, maxX - minX, maxY - minY));
+            group.SubItems = Selection;
+
+            foreach (var item in Selection)
+            {
+                ShapeList.Remove(item);
+            }
+
+            Selection = new List<Shape>();
+            Selection.Add(group);
+
+            ShapeList.Add(group);
+        }
     }
 }

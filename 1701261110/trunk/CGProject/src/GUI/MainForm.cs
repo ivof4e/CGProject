@@ -53,9 +53,14 @@ namespace Draw
 		void ViewPortMouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
 		{
 			if (pickUpSpeedButton.Checked) {
-				dialogProcessor.Selection = dialogProcessor.ContainsPoint(e.Location);
-				if (dialogProcessor.Selection != null) {
-					statusBar.Items[0].Text = "Последно действие: Селекция на примитив";
+				var sel = dialogProcessor.ContainsPoint(e.Location);
+				if (sel != null) {
+                    if (dialogProcessor.Selection.Contains(sel))
+                        dialogProcessor.Selection.Remove(sel);
+                    else
+                        dialogProcessor.Selection.Add(sel);
+
+                    statusBar.Items[0].Text = "Последно действие: Селекция на примитив";
 					dialogProcessor.IsDragging = true;
 					dialogProcessor.LastLocation = e.Location;
 					viewPort.Invalidate();
@@ -124,14 +129,20 @@ namespace Draw
             viewPort.Invalidate();
         }
 
-        //private void toolStripButton4_Click(object sender, EventArgs e)
-        //{
-           // if (colorDialog.ShowDialog() == DialogResult.OK)
-           // {
-             //   dialogProcessor.SetFillColor(colorDialog.Color);
-            //   viewPort.Invalidate();
-           // }
-      //  }
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.Group();
+            viewPort.Invalidate();
+        }
+
+        /*    private void toolStripButton4_Click(object sender, EventArgs e)
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK)
+                {
+                    dialogProcessor.SetFillColor(colorDialog.Color);
+                   viewPort.Invalidate();
+                }
+            }*/
 
     }
 }
