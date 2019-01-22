@@ -63,7 +63,7 @@ namespace Draw
 		{
 			for(int i = ShapeList.Count - 1; i >= 0; i--){
 				if (ShapeList[i].Contains(point)){
-					ShapeList[i].FillColor = Color.Red;
+					//ShapeList[i].FillColor = Color.White;
 						
 					return ShapeList[i];
 				}	
@@ -187,11 +187,11 @@ namespace Draw
             {
                 if (minX > item.Location.X) minX = item.Location.X;
                 if (minY > item.Location.Y) minY = item.Location.Y;
-                if (maxX > item.Location.X + item.Width) maxX = item.Location.X + item.Width;
-                if (maxY > item.Location.Y + item.Height) maxY = item.Location.Y + item.Height;
+                if (maxX < item.Location.X + item.Width) maxX = item.Location.X + item.Width;
+                if (maxY < item.Location.Y + item.Height) maxY = item.Location.Y + item.Height;
             }
 
-            var group = new GroupShape(new RectangleF(minX, minY, maxX-minX, maxY-minY));
+            var group = new GroupShape(new RectangleF(minX, minY, maxX - minX, maxY - minY));
             group.SubItems = Selection;
 
             foreach (var item in Selection)
@@ -203,6 +203,7 @@ namespace Draw
             Selection.Add(group);
 
             ShapeList.Add(group);
+
         }
     }
 }

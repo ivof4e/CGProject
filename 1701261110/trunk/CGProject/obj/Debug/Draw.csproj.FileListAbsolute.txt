@@ -26,3 +26,13 @@ C:\Users\Ivailo\Downloads\CGProject-master\trunk\CGProject\obj\Debug\Draw.csproj
 C:\Users\Ivailo\Downloads\CGProject-master\trunk\CGProject\obj\Debug\Draw.csproj.CoreCompileInputs.cache
 C:\Users\Ivailo\Downloads\CGProject-master\trunk\CGProject\obj\Debug\Draw.exe
 C:\Users\Ivailo\Downloads\CGProject-master\trunk\CGProject\obj\Debug\Draw.pdb
+C:\Users\Ivailo\Desktop\CGProject\1701261110\trunk\CGProject\bin\Debug\Draw.exe
+C:\Users\Ivailo\Desktop\CGProject\1701261110\trunk\CGProject\bin\Debug\Draw.pdb
+C:\Users\Ivailo\Desktop\CGProject\1701261110\trunk\CGProject\obj\Debug\Draw.csprojAssemblyReference.cache
+C:\Users\Ivailo\Desktop\CGProject\1701261110\trunk\CGProject\obj\Debug\Draw.Properties.Resources.resources
+C:\Users\Ivailo\Desktop\CGProject\1701261110\trunk\CGProject\obj\Debug\Draw.DoubleBufferedPanel.resources
+C:\Users\Ivailo\Desktop\CGProject\1701261110\trunk\CGProject\obj\Debug\Draw.MainForm.resources
+C:\Users\Ivailo\Desktop\CGProject\1701261110\trunk\CGProject\obj\Debug\Draw.csproj.GenerateResource.cache
+C:\Users\Ivailo\Desktop\CGProject\1701261110\trunk\CGProject\obj\Debug\Draw.csproj.CoreCompileInputs.cache
+C:\Users\Ivailo\Desktop\CGProject\1701261110\trunk\CGProject\obj\Debug\Draw.exe
+C:\Users\Ivailo\Desktop\CGProject\1701261110\trunk\CGProject\obj\Debug\Draw.pdb
