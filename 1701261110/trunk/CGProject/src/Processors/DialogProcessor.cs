@@ -1,5 +1,6 @@
 ﻿using Draw.src.Model;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace Draw
@@ -22,8 +23,8 @@ namespace Draw
 		/// <summary>
 		/// Избран елемент.
 		/// </summary>
-		private Shape selection;
-		public Shape Selection {
+		private List<Shape> selection = new List<Shape>();
+		public List<Shape> Selection {
 			get { return selection; }
 			set { selection = value; }
 		}
@@ -32,7 +33,8 @@ namespace Draw
 		/// Дали в момента диалога е в състояние на "влачене" на избрания елемент.
 		/// </summary>
 		private bool isDragging;
-		public bool IsDragging {
+		public bool IsDragging
+        {
 			get { return isDragging; }
 			set { isDragging = value; }
 		}
@@ -42,7 +44,8 @@ namespace Draw
 		/// Използва се за определяне на вектора на транслация.
 		/// </summary>
 		private PointF lastLocation;
-		public PointF LastLocation {
+		public PointF LastLocation
+        {
 			get { return lastLocation; }
 			set { lastLocation = value; }
 		}
@@ -74,11 +77,11 @@ namespace Draw
 		/// <param name="p">Вектор на транслация.</param>
 		public void TranslateTo(PointF p)
 		{
-			if (selection != null) {
-				selection.Location = new PointF(selection.Location.X + p.X - lastLocation.X, selection.Location.Y + p.Y - lastLocation.Y);
-				lastLocation = p;
+			foreach(var item in Selection) {
+                item.Location = new PointF(item.Location.X + p.X - lastLocation.X, item.Location.Y + p.Y - lastLocation.Y);	
 			}
-		}
+            lastLocation = p;
+        }
         /// <summary>
 		/// Добавя примитив - правоъгълник на произволно място върху клиентската област.
 		/// </summary>
@@ -103,7 +106,7 @@ namespace Draw
 
             SquareShape square = new SquareShape(new Rectangle(x, y, 100, 100));
             square.FillColor = Color.White;
-            square.BorderColor = Color.Black;
+            square.BorderColor = Color.HotPink;
 
             ShapeList.Add(square);
         }
@@ -117,7 +120,7 @@ namespace Draw
 
             TriangleShape triangle = new TriangleShape(new Rectangle(x, y, 100, 100));
             triangle.FillColor = Color.White;
-            triangle.BorderColor = Color.Black;
+            triangle.BorderColor = Color.Blue;
 
             ShapeList.Add(triangle);
         }
@@ -131,7 +134,7 @@ namespace Draw
 
             EllipseShape ellipse = new EllipseShape(new Rectangle(x, y, 200, 100));
             ellipse.FillColor = Color.White;
-            ellipse.BorderColor = Color.Black;
+            ellipse.BorderColor = Color.Green;
 
             ShapeList.Add(ellipse);
         }
@@ -145,20 +148,61 @@ namespace Draw
 
             CircleShape circle = new CircleShape(new Rectangle(x, y, 100, 100));
             circle.FillColor = Color.White;
-            circle.BorderColor = Color.Black;
+            circle.BorderColor = Color.Purple;
 
             ShapeList.Add(circle);
         }
 
         public void SetFillColor(Color color)
         {
-            if (Selection != null)
+            foreach (var item in Selection)
             {
-                Selection.FillColor = color;
+                item.FillColor = color;
             }
         }
 
+        public override void Draw(Graphics grfx)
+        {
+            base.Draw(grfx);
+            foreach (var item in Selection)
+            {
+                grfx.DrawRectangle(Pens.Black, item.Location.X - 3, item.Location.Y - 3, item.Width + 6, item.Height + 6);
+            }
+        }
 
+        internal void SetFillColor(object color)
+        {
+            throw new NotImplementedException();
+        }
 
+        public void Group()
+        {
+            if (Selection.Count < 2) return;
+
+            float minX = float.PositiveInfinity;
+            float minY = float.PositiveInfinity;
+            float maxX = float.NegativeInfinity;
+            float maxY = float.NegativeInfinity;
+            foreach (var item in Selection)
+            {
+                if (minX > item.Location.X) minX = item.Location.X;
+                if (minY > item.Location.Y) minY = item.Location.Y;
+                if (maxX > item.Location.X + item.Width) maxX = item.Location.X + item.Width;
+                if (maxY > item.Location.Y + item.Height) maxY = item.Location.Y + item.Height;
+            }
+
+            var group = new GroupShape(new RectangleF(minX, minY, maxX-minX, maxY-minY));
+            group.SubItems = Selection;
+
+            foreach (var item in Selection)
+            {
+                ShapeList.Remove(item);
+            }
+
+            Selection = new List<Shape>();
+            Selection.Add(group);
+
+            ShapeList.Add(group);
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
 
 namespace Draw
@@ -53,9 +54,14 @@ namespace Draw
 		void ViewPortMouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
 		{
 			if (pickUpSpeedButton.Checked) {
-				dialogProcessor.Selection = dialogProcessor.ContainsPoint(e.Location);
-				if (dialogProcessor.Selection != null) {
-					statusBar.Items[0].Text = "Последно действие: Селекция на примитив";
+				var sel = dialogProcessor.ContainsPoint(e.Location);
+				if (sel != null) {
+                    if (dialogProcessor.Selection.Contains(sel))
+                        dialogProcessor.Selection.Remove(sel);
+                    else
+                        dialogProcessor.Selection.Add(sel);
+
+                    statusBar.Items[0].Text = "Последно действие: Селекция на примитив";
 					dialogProcessor.IsDragging = true;
 					dialogProcessor.LastLocation = e.Location;
 					viewPort.Invalidate();
@@ -89,49 +95,64 @@ namespace Draw
 		/// Бутон, който поставя на произволно място правоъгълник със зададените размери.
 		/// Променя се лентата със състоянието и се инвалидира контрола, в който визуализираме.
 		/// </summary>
-		void DrawRectangleSpeedButtonClick(object sender, EventArgs e)
+		void RectangleButtonClick(object sender, EventArgs e)
         {
             dialogProcessor.AddRandomRectangle();
             statusBar.Items[0].Text = "Последно действие: Рисуване на Правоъгълник";
             viewPort.Invalidate();
         }
 
-        private void toolStripButton3_Click(object sender, EventArgs e)
+        private void SquareButtonClick(object sender, EventArgs e)
         {
             dialogProcessor.AddRandomSquare();
             statusBar.Items[0].Text = "Последно действие: Рисуване на Квадрат";
             viewPort.Invalidate();
         }
 
-        private void toolStripButton4_Click_1(object sender, EventArgs e)
+        private void TriangleButtonClick(object sender, EventArgs e)
         {
             dialogProcessor.AddRandomTriangle();
             statusBar.Items[0].Text = "Последно действие: Рисуване на Триъгълник";
             viewPort.Invalidate();
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void EllipseButtonClick(object sender, EventArgs e)
         {
             dialogProcessor.AddRandomEllipse();
             statusBar.Items[0].Text = "Последно действие: Рисуване на Елипса";
             viewPort.Invalidate();
         }
 
-        private void toolStripButton2_Click(object sender, EventArgs e)
+        private void CircleButtonClick(object sender, EventArgs e)
         {
             dialogProcessor.AddRandomCircle();
             statusBar.Items[0].Text = "Последно действие: Рисуване на Кръг";
             viewPort.Invalidate();
         }
 
-        //private void toolStripButton4_Click(object sender, EventArgs e)
-        //{
-           // if (colorDialog.ShowDialog() == DialogResult.OK)
-           // {
-             //   dialogProcessor.SetFillColor(colorDialog.Color);
-            //   viewPort.Invalidate();
-           // }
-      //  }
+        private void GroupShapesButtonClick(object sender, EventArgs e)
+        {
+            dialogProcessor.Group();
+            viewPort.Invalidate();
+        }
 
+        private void ColorDialogClick(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                dialogProcessor.SetFillColor(colorDialog1.Color);
+                viewPort.Invalidate();
+            }
+        }
+
+        private void pickUpSpeedButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void speedMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

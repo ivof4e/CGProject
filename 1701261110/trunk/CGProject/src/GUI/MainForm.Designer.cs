@@ -41,12 +41,15 @@ namespace Draw
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.currentStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.speedMenu = new System.Windows.Forms.ToolStrip();
-            this.drawRectangleSpeedButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.pickUpSpeedButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.drawRectangleSpeedButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.pickUpSpeedButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.viewPort = new Draw.DoubleBufferedPanel();
             this.mainMenu.SuspendLayout();
             this.statusBar.SuspendLayout();
@@ -128,39 +131,26 @@ namespace Draw
             // 
             // speedMenu
             // 
-            this.speedMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.speedMenu.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.speedMenu.ImageScalingSize = new System.Drawing.Size(60, 60);
+            this.speedMenu.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.speedMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.drawRectangleSpeedButton,
-            this.toolStripButton3,
-            this.toolStripButton4,
             this.toolStripButton1,
             this.toolStripButton2,
-            this.pickUpSpeedButton});
+            this.toolStripButton3,
+            this.drawRectangleSpeedButton,
+            this.toolStripButton4,
+            this.pickUpSpeedButton,
+            this.toolStripButton5,
+            this.toolStripButton6});
             this.speedMenu.Location = new System.Drawing.Point(0, 28);
             this.speedMenu.Name = "speedMenu";
-            this.speedMenu.Size = new System.Drawing.Size(924, 27);
-            this.speedMenu.TabIndex = 3;
+            this.speedMenu.Padding = new System.Windows.Forms.Padding(0, 0, 1, 2);
+            this.speedMenu.Size = new System.Drawing.Size(924, 69);
+            this.speedMenu.Stretch = true;
+            this.speedMenu.TabIndex = 13;
             this.speedMenu.Text = "toolStrip1";
-            // 
-            // drawRectangleSpeedButton
-            // 
-            this.drawRectangleSpeedButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.drawRectangleSpeedButton.Image = ((System.Drawing.Image)(resources.GetObject("drawRectangleSpeedButton.Image")));
-            this.drawRectangleSpeedButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.drawRectangleSpeedButton.Name = "drawRectangleSpeedButton";
-            this.drawRectangleSpeedButton.Size = new System.Drawing.Size(24, 24);
-            this.drawRectangleSpeedButton.Text = "DrawRectangleButton";
-            this.drawRectangleSpeedButton.Click += new System.EventHandler(this.DrawRectangleSpeedButtonClick);
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton3.Text = "toolStripButton3";
-            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            this.speedMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.speedMenu_ItemClicked);
             // 
             // toolStripButton1
             // 
@@ -168,9 +158,9 @@ namespace Draw
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.toolStripButton1.Size = new System.Drawing.Size(64, 64);
+            this.toolStripButton1.Text = "EllipseButtonClick";
+            this.toolStripButton1.Click += new System.EventHandler(this.EllipseButtonClick);
             // 
             // toolStripButton2
             // 
@@ -178,9 +168,39 @@ namespace Draw
             this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton2.Text = "toolStripButton2";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            this.toolStripButton2.Size = new System.Drawing.Size(64, 64);
+            this.toolStripButton2.Text = "CircleButtonClick";
+            this.toolStripButton2.Click += new System.EventHandler(this.CircleButtonClick);
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(64, 64);
+            this.toolStripButton3.Text = "SquareButtonClick";
+            this.toolStripButton3.Click += new System.EventHandler(this.SquareButtonClick);
+            // 
+            // drawRectangleSpeedButton
+            // 
+            this.drawRectangleSpeedButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.drawRectangleSpeedButton.Image = ((System.Drawing.Image)(resources.GetObject("drawRectangleSpeedButton.Image")));
+            this.drawRectangleSpeedButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.drawRectangleSpeedButton.Name = "drawRectangleSpeedButton";
+            this.drawRectangleSpeedButton.Size = new System.Drawing.Size(64, 64);
+            this.drawRectangleSpeedButton.Text = "RectangleButtonClick";
+            this.drawRectangleSpeedButton.Click += new System.EventHandler(this.RectangleButtonClick);
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(64, 64);
+            this.toolStripButton4.Text = "TriangleButtonClick";
+            this.toolStripButton4.Click += new System.EventHandler(this.TriangleButtonClick);
             // 
             // pickUpSpeedButton
             // 
@@ -189,26 +209,37 @@ namespace Draw
             this.pickUpSpeedButton.Image = ((System.Drawing.Image)(resources.GetObject("pickUpSpeedButton.Image")));
             this.pickUpSpeedButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.pickUpSpeedButton.Name = "pickUpSpeedButton";
-            this.pickUpSpeedButton.Size = new System.Drawing.Size(24, 24);
+            this.pickUpSpeedButton.Size = new System.Drawing.Size(64, 64);
             this.pickUpSpeedButton.Text = "toolStripButton1";
+            this.pickUpSpeedButton.Click += new System.EventHandler(this.pickUpSpeedButton_Click);
             // 
-            // toolStripButton4
+            // toolStripButton5
             // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton4.Text = "toolStripButton4";
-            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click_1);
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(64, 64);
+            this.toolStripButton5.Text = "GroupShapesButtonClick";
+            this.toolStripButton5.Click += new System.EventHandler(this.GroupShapesButtonClick);
+            // 
+            // toolStripButton6
+            // 
+            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
+            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton6.Name = "toolStripButton6";
+            this.toolStripButton6.Size = new System.Drawing.Size(64, 64);
+            this.toolStripButton6.Text = "ColorDialogClick";
+            this.toolStripButton6.Click += new System.EventHandler(this.ColorDialogClick);
             // 
             // viewPort
             // 
             this.viewPort.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.viewPort.Location = new System.Drawing.Point(0, 55);
+            this.viewPort.Location = new System.Drawing.Point(0, 97);
             this.viewPort.Margin = new System.Windows.Forms.Padding(5);
             this.viewPort.Name = "viewPort";
-            this.viewPort.Size = new System.Drawing.Size(924, 444);
+            this.viewPort.Size = new System.Drawing.Size(924, 402);
             this.viewPort.TabIndex = 4;
             this.viewPort.Paint += new System.Windows.Forms.PaintEventHandler(this.ViewPortPaint);
             this.viewPort.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseDown);
@@ -241,10 +272,6 @@ namespace Draw
 
 		}
 
-        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
 
         private System.Windows.Forms.ToolStripStatusLabel currentStatusLabel;
 		private Draw.DoubleBufferedPanel viewPort;
@@ -263,5 +290,10 @@ namespace Draw
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.ToolStripButton toolStripButton6;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+
+       
     }
 }
