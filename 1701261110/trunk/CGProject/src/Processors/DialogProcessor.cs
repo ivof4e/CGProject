@@ -205,5 +205,17 @@ namespace Draw
             ShapeList.Add(group);
 
         }
+
+        internal void Delete()
+        {
+            foreach (var item in Selection)
+                ShapeList.Remove(item);
+            Selection.Clear();
+        }
+
+        public void SelectAll()
+        {
+            Selection = new List<Shape>(ShapeList);
+        }
     }
 }

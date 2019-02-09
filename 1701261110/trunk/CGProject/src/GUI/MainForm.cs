@@ -154,5 +154,52 @@ namespace Draw
         {
 
         }
+
+        private void rectangleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.AddRandomRectangle();
+            viewPort.Invalidate();
+        }
+
+        private void toolStripButton7_Click(object sender, EventArgs e)
+        {
+            //dialogProcessor.Rotate(....);
+            viewPort.Invalidate();
+        }
+
+        private void toolStripButton8_Click(object sender, EventArgs e)
+        {
+            //dialogProcessor.Rotate(90);
+            viewPort.Invalidate();
+        }
+
+        private void toolStripButton9_Click(object sender, EventArgs e)
+        {
+            //dialogProcessor.Rotate(Select Rotate);
+            viewPort.Invalidate();
+        }
+
+        private void toolStripTextBox1_Click(object sender, EventArgs e)
+        {
+            //dialogProcessor.Rotate(90);
+            viewPort.Invalidate();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.Delete();
+            viewPort.Invalidate();
+        }
+
+        private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dialogProcessor.SelectAll();
+            viewPort.Invalidate();
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
