@@ -60,4 +60,3 @@ namespace Draw.src.Model
         }
     }
 }
-

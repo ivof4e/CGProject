@@ -94,6 +94,39 @@ namespace Draw
         }
 
         /// <summary>
+        /// Бутон, който поставя на произволно място кръг със зададените размери.
+        /// Променя се лентата със състоянието и се инвалидира контрола, в който визуализираме.
+        /// </summary>
+        private void CircleButtonClick(object sender, EventArgs e)
+        {
+            dialogProcessor.AddRandomCircle();
+            statusBar.Items[0].Text = "Последно действие: Рисуване на Кръг";
+            viewPort.Invalidate();
+        }
+
+        /// <summary>
+        /// Бутон, който поставя на произволно място елипса със зададените размери.
+        /// Променя се лентата със състоянието и се инвалидира контрола, в който визуализираме.
+        /// </summary>
+        private void EllipseButtonClick(object sender, EventArgs e)
+        {
+            dialogProcessor.AddRandomEllipse();
+            statusBar.Items[0].Text = "Последно действие: Рисуване на Елипса";
+            viewPort.Invalidate();
+        }
+
+        /// <summary>
+        /// Бутон, който поставя на произволно място квадрат със зададените размери.
+        /// Променя се лентата със състоянието и се инвалидира контрола, в който визуализираме.
+        /// </summary>
+        private void SquareButtonClick(object sender, EventArgs e)
+        {
+            dialogProcessor.AddRandomSquare();
+            statusBar.Items[0].Text = "Последно действие: Рисуване на Квадрат";
+            viewPort.Invalidate();
+        }
+
+        /// <summary>
 		/// Бутон, който поставя на произволно място правоъгълник със зададените размери.
 		/// Променя се лентата със състоянието и се инвалидира контрола, в който визуализираме.
 		/// </summary>
@@ -104,53 +137,15 @@ namespace Draw
             viewPort.Invalidate();
         }
 
-        private void SquareButtonClick(object sender, EventArgs e)
-        {
-            dialogProcessor.AddRandomSquare();
-            statusBar.Items[0].Text = "Последно действие: Рисуване на Квадрат";
-            viewPort.Invalidate();
-        }
-
+        /// <summary>
+        /// Бутон, който поставя на произволно място триъгълник със зададените размери.
+        /// Променя се лентата със състоянието и се инвалидира контрола, в който визуализираме.
+        /// </summary>
         private void TriangleButtonClick(object sender, EventArgs e)
         {
             dialogProcessor.AddRandomTriangle();
             statusBar.Items[0].Text = "Последно действие: Рисуване на Триъгълник";
             viewPort.Invalidate();
-        }
-
-        private void EllipseButtonClick(object sender, EventArgs e)
-        {
-            dialogProcessor.AddRandomEllipse();
-            statusBar.Items[0].Text = "Последно действие: Рисуване на Елипса";
-            viewPort.Invalidate();
-        }
-
-        private void CircleButtonClick(object sender, EventArgs e)
-        {
-            dialogProcessor.AddRandomCircle();
-            statusBar.Items[0].Text = "Последно действие: Рисуване на Кръг";
-            viewPort.Invalidate();
-        }
-
-        private void GroupShapesButtonClick(object sender, EventArgs e)
-        {
-            dialogProcessor.Group();
-            viewPort.Invalidate();
-        }
-
-        private void UnGroupShapesButtonClick(object sender, EventArgs e)
-        {
-            dialogProcessor.UnGroup();
-            viewPort.Invalidate();
-        }
-
-        private void ColorDialogClick(object sender, EventArgs e)
-        {
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
-            {
-                dialogProcessor.SetFillColor(colorDialog1.Color);
-                viewPort.Invalidate();
-            }
         }
 
         private void pickUpSpeedButton_Click(object sender, EventArgs e)
@@ -163,47 +158,57 @@ namespace Draw
 
         }
 
-        private void rectangleToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Бутон, който групира формите.
+        /// </summary>
+        private void GroupShapesButtonClick(object sender, EventArgs e)
         {
-            dialogProcessor.AddRandomRectangle();
+            dialogProcessor.Group();
             viewPort.Invalidate();
         }
 
-        private void RotateButtonClick(object sender, EventArgs e)
+        /// <summary>
+        /// Бутон, който разгрупира формите.
+        /// </summary>
+        private void UnGroupShapesButtonClick(object sender, EventArgs e)
         {
-            //dialogProcessor.Rotate(....);
+            dialogProcessor.UnGroup();
             viewPort.Invalidate();
         }
 
-        private void RotateDegreesButtonClick(object sender, EventArgs e)
+        /// <summary>
+        /// Бутон, който отваря прозорец със цветове.
+        /// </summary>
+        private void ColorDialogClick(object sender, EventArgs e)
         {
-            //dialogProcessor.Rotate(90);
-            viewPort.Invalidate();
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                dialogProcessor.SetFillColor(colorDialog1.Color);
+                viewPort.Invalidate();
+            }
         }
 
-        private void SelectRotateButtonClick(object sender, EventArgs e)
-        {
-            //dialogProcessor.Rotate(Select Rotate);
-            viewPort.Invalidate();
-        }
-
+        /// <summary>
+        /// Бутон от падащото меню, който трие форми.
+        /// </summary>
         private void DeleteToolStripMenuItemClick(object sender, EventArgs e)
         {
             dialogProcessor.Delete();
             viewPort.Invalidate();
         }
 
+        /// <summary>
+        /// Бутон от падащото меню, който избира форми.
+        /// </summary>
         private void SelectAllToolStripMenuItemClick(object sender, EventArgs e)
         {
             dialogProcessor.SelectAll();
             viewPort.Invalidate();
         }
 
-        private void EditToolStripMenuItemClick(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Бутон от падащото меню, който отваря файлове.
+        /// </summary>
         private void OpenToolStripMenuItemClick(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -213,6 +218,9 @@ namespace Draw
             }
         }
 
+        /// <summary>
+        /// Бутон от падащото меню, който записва файлове.
+        /// </summary>
         private void SaveAsFileToolStripMenuItemClick(object sender, EventArgs e)
         {
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
@@ -221,6 +229,9 @@ namespace Draw
             }
         }
 
+        /// <summary>
+        /// Бутон от падащото меню, който записва изображения във формати ".jpg", ".png", ".bmp".
+        /// </summary>
         private void SaveAsPictureToolStripMenuItemClick(object sender, EventArgs e)
         {
             Bitmap bmp = new Bitmap(width: viewPort.Width, height: viewPort.Height);
@@ -251,9 +262,17 @@ namespace Draw
             }
         }
 
+        /// <summary>
+        /// Бутон от падащото меню, който копира форми.
+        /// </summary>
         private void CopyToolStripMenuItemClick(object sender, EventArgs e)
         {
             dialogProcessor.Copy();
+        }
+
+        private void EditToolStripMenuItemClick(object sender, EventArgs e)
+        {
+
         }
     }
 }

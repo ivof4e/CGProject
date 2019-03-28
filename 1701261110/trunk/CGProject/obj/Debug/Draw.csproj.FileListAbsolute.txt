@@ -1,9 +1,19 @@
-C:\Users\ivof4e\Desktop\1701261110\trunk\CGProject\bin\Debug\Draw.exe
-C:\Users\ivof4e\Desktop\1701261110\trunk\CGProject\bin\Debug\Draw.pdb
-C:\Users\ivof4e\Desktop\1701261110\trunk\CGProject\obj\Debug\Draw.csprojResolveAssemblyReference.cache
-C:\Users\ivof4e\Desktop\1701261110\trunk\CGProject\obj\Debug\Draw.Properties.Resources.resources
-C:\Users\ivof4e\Desktop\1701261110\trunk\CGProject\obj\Debug\Draw.DoubleBufferedPanel.resources
-C:\Users\ivof4e\Desktop\1701261110\trunk\CGProject\obj\Debug\Draw.MainForm.resources
-C:\Users\ivof4e\Desktop\1701261110\trunk\CGProject\obj\Debug\Draw.csproj.GenerateResource.Cache
-C:\Users\ivof4e\Desktop\1701261110\trunk\CGProject\obj\Debug\Draw.exe
-C:\Users\ivof4e\Desktop\1701261110\trunk\CGProject\obj\Debug\Draw.pdb
+C:\Users\ivof4e\Desktop\Нова папка\trunk\CGProject\bin\Debug\Draw.exe
+C:\Users\ivof4e\Desktop\Нова папка\trunk\CGProject\bin\Debug\Draw.pdb
+C:\Users\ivof4e\Desktop\Нова папка\trunk\CGProject\obj\Debug\Draw.csprojResolveAssemblyReference.cache
+C:\Users\ivof4e\Desktop\Нова папка\trunk\CGProject\obj\Debug\Draw.Properties.Resources.resources
+C:\Users\ivof4e\Desktop\Нова папка\trunk\CGProject\obj\Debug\Draw.DoubleBufferedPanel.resources
+C:\Users\ivof4e\Desktop\Нова папка\trunk\CGProject\obj\Debug\Draw.MainForm.resources
+C:\Users\ivof4e\Desktop\Нова папка\trunk\CGProject\obj\Debug\Draw.csproj.GenerateResource.Cache
+C:\Users\ivof4e\Desktop\Нова папка\trunk\CGProject\obj\Debug\Draw.exe
+C:\Users\ivof4e\Desktop\Нова папка\trunk\CGProject\obj\Debug\Draw.pdb
+C:\Users\Ivailo\Desktop\123\Нова папка\trunk\CGProject\obj\Debug\Draw.csprojAssemblyReference.cache
+C:\Users\Ivailo\Desktop\123\Нова папка\trunk\CGProject\obj\Debug\Draw.Properties.Resources.resources
+C:\Users\Ivailo\Desktop\123\Нова папка\trunk\CGProject\obj\Debug\Draw.DoubleBufferedPanel.resources
+C:\Users\Ivailo\Desktop\123\Нова папка\trunk\CGProject\obj\Debug\Draw.MainForm.resources
+C:\Users\Ivailo\Desktop\123\Нова папка\trunk\CGProject\obj\Debug\Draw.csproj.GenerateResource.cache
+C:\Users\Ivailo\Desktop\123\Нова папка\trunk\CGProject\obj\Debug\Draw.csproj.CoreCompileInputs.cache
+C:\Users\Ivailo\Desktop\123\Нова папка\trunk\CGProject\obj\Debug\Draw.exe
+C:\Users\Ivailo\Desktop\123\Нова папка\trunk\CGProject\obj\Debug\Draw.pdb
+C:\Users\Ivailo\Desktop\123\Нова папка\trunk\CGProject\bin\Debug\Draw.exe
+C:\Users\Ivailo\Desktop\123\Нова папка\trunk\CGProject\bin\Debug\Draw.pdb

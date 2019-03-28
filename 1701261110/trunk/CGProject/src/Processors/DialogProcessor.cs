@@ -87,6 +87,55 @@ namespace Draw
 			}
             lastLocation = p;
         }
+
+        /// <summary>
+		/// Добавя примитив - кръг на произволно място върху клиентската област.
+		/// </summary>
+        public void AddRandomCircle()
+        {
+            Random rnd = new Random();
+            int x = rnd.Next(100, 1000);
+            int y = rnd.Next(100, 600);
+
+            CircleShape circle = new CircleShape(new Rectangle(x, y, 100, 100));
+            circle.FillColor = Color.White;
+            circle.BorderColor = Color.Purple;
+
+            ShapeList.Add(circle);
+        }
+
+        /// <summary>
+		/// Добавя примитив - елипса на произволно място върху клиентската област.
+		/// </summary>
+        public void AddRandomEllipse()
+        {
+            Random rnd = new Random();
+            int x = rnd.Next(100, 1000);
+            int y = rnd.Next(100, 600);
+
+            EllipseShape ellipse = new EllipseShape(new Rectangle(x, y, 200, 100));
+            ellipse.FillColor = Color.White;
+            ellipse.BorderColor = Color.Green;
+
+            ShapeList.Add(ellipse);
+        }
+
+        /// <summary>
+		/// Добавя примитив - квадрат на произволно място върху клиентската област.
+		/// </summary>
+        public void AddRandomSquare()
+        {
+            Random rnd = new Random();
+            int x = rnd.Next(100, 1000);
+            int y = rnd.Next(100, 600);
+
+            SquareShape square = new SquareShape(new Rectangle(x, y, 100, 100));
+            square.FillColor = Color.White;
+            square.BorderColor = Color.HotPink;
+
+            ShapeList.Add(square);
+        }
+
         /// <summary>
 		/// Добавя примитив - правоъгълник на произволно място върху клиентската област.
 		/// </summary>
@@ -102,21 +151,10 @@ namespace Draw
 
             ShapeList.Add(rect);
         }
-        // Добавяне на рандом Квадрат
-        public void AddRandomSquare()
-        {
-            Random rnd = new Random();
-            int x = rnd.Next(100, 1000);
-            int y = rnd.Next(100, 600);
 
-            SquareShape square = new SquareShape(new Rectangle(x, y, 100, 100));
-            square.FillColor = Color.White;
-            square.BorderColor = Color.HotPink;
-
-            ShapeList.Add(square);
-        }
-
-        // Добавяне на рандом Триъгълник
+        /// <summary>
+        /// Добавя примитив - триъгълник на произволно място върху клиентската област.
+        /// </summary>
         public void AddRandomTriangle()
         {
             Random rnd = new Random();
@@ -130,56 +168,9 @@ namespace Draw
             ShapeList.Add(triangle);
         }
 
-        // Добавяне на рандом Елипса
-        public void AddRandomEllipse()
-        {
-            Random rnd = new Random();
-            int x = rnd.Next(100, 1000);
-            int y = rnd.Next(100, 600);
-
-            EllipseShape ellipse = new EllipseShape(new Rectangle(x, y, 200, 100));
-            ellipse.FillColor = Color.White;
-            ellipse.BorderColor = Color.Green;
-
-            ShapeList.Add(ellipse);
-        }
-
-        // Добавяне на рандом Кръг
-        public void AddRandomCircle()
-        {
-            Random rnd = new Random();
-            int x = rnd.Next(100, 1000);
-            int y = rnd.Next(100, 600);
-
-            CircleShape circle = new CircleShape(new Rectangle(x, y, 100, 100));
-            circle.FillColor = Color.White;
-            circle.BorderColor = Color.Purple;
-
-            ShapeList.Add(circle);
-        }
-
-        public void SetFillColor(Color color)
-        {
-            foreach (var item in Selection)
-            {
-                item.FillColor = color;
-            }
-        }
-
-        public override void Draw(Graphics grfx)
-        {
-            base.Draw(grfx);
-            foreach (var item in Selection)
-            {
-                grfx.DrawRectangle(Pens.Black, item.Location.X - 3, item.Location.Y - 3, item.Width + 6, item.Height + 6);
-            }
-        }
-
-        internal void SetFillColor(object color)
-        {
-            throw new NotImplementedException();
-        }
-
+        /// <summary>
+        /// Групиране формите.
+        /// </summary>
         public void Group()
         {
             if (Selection.Count < 2) return;
@@ -210,6 +201,9 @@ namespace Draw
             ShapeList.Add(group);
         }
 
+        /// <summary>
+        /// Разгрупиране формите.
+        /// </summary>
         public void UnGroup()
         {
             for (int i = 0; i < Selection.Count; i++)
@@ -226,6 +220,32 @@ namespace Draw
             }
         }
 
+        /// <summary>
+        /// Прозорец със цветове.
+        /// </summary>
+        public void SetFillColor(Color color)
+        {
+            foreach (var item in Selection)
+            {
+                item.FillColor = color;
+            }
+        }
+        internal void SetFillColor(object color)
+        {
+            throw new NotImplementedException();
+        }
+        public override void Draw(Graphics grfx)
+        {
+            base.Draw(grfx);
+            foreach (var item in Selection)
+            {
+                grfx.DrawRectangle(Pens.Black, item.Location.X - 3, item.Location.Y - 3, item.Width + 6, item.Height + 6);
+            }
+        }
+
+        /// <summary>
+        /// Триене на форми.
+        /// </summary>
         internal void Delete()
         {
             foreach (var item in Selection)
@@ -233,11 +253,17 @@ namespace Draw
             Selection.Clear();
         }
 
+        /// <summary>
+        /// Избиране на форми.
+        /// </summary>
         public void SelectAll()
         {
             Selection = new List<Shape>(ShapeList);
         }
 
+        /// <summary>
+        /// Отваря файлове.
+        /// </summary>
         public void OpenFile(string fileName)
         {
             FileStream fs = new FileStream(fileName, FileMode.Open);
@@ -246,6 +272,9 @@ namespace Draw
             fs.Close();
         }
 
+        /// <summary>
+        /// Записва файлове.
+        /// </summary>
         public void SaveAs(string fileName)
         {
             FileStream fs = new FileStream(fileName, FileMode.Create);
@@ -254,6 +283,9 @@ namespace Draw
             fs.Close();
         }
 
+        /// <summary>
+        /// Копира форми.
+        /// </summary>
         public void Copy()
         {
             MemoryStream ms = new MemoryStream();

@@ -125,4 +125,37 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="pic\RectangleShape.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pic\EllipseShape.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pic\CircleShape.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pic\SquareShape.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pic\TriangleShape.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pic\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pic\Open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pic\Exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pic\SelectAll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pic\Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pic\Copy.png" />
+  </ItemGroup>
 </Project>
